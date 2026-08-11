@@ -1,0 +1,40 @@
+<header class="header">
+
+  <div class="logo-section">
+    <img
+      src="assets/Moov_Africa_logo.png"
+      alt="Moov Africa Logo"
+      class="logo">
+  </div>
+
+  <div class="header-title">
+    CCI Portal
+  </div>
+
+  <div class="profile-section">
+
+  <mat-form-field appearance="outline" class="language-dropdown">
+ <mat-select
+  [value]="selectedLanguage"
+  (selectionChange)="changeLanguage($event.value)">
+  <mat-option value="en">English</mat-option>
+  <mat-option value="fr">French</mat-option>
+</mat-select>
+  </mat-form-field>
+
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="profileMenu"
+    class="profile-btn">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>{{ 'HEADER.LOGOUT' | translate }}</span>
+    </button>
+  </mat-menu>
+
+</div>
+</header>

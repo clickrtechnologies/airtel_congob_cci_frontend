@@ -1,0 +1,71 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="page-content">
+  <div class="container">
+    <div class="search-card">
+      <h2>{{ 'DASHBOARD.CHECK_USER_STATUS' | translate }}</h2>
+      <p>{{ 'DASHBOARD.DESCRIPTION' | translate }}</p>
+
+      <h4>{{ 'DASHBOARD.SUBSCRIBER_MOBILE_NUMBER' | translate }}</h4>
+      <div class="search-section">
+        <input
+          type="text"
+          [(ngModel)]="whatsappNumber"
+          placeholder="{{ 'DASHBOARD.ENTER_MOBILE_NUMBER' | translate }}"
+        />
+
+        <button class="search-btn" (click)="fetchUserDetails()"> {{ 'DASHBOARD.SEARCH' | translate }}</button>
+      </div>
+    </div>
+
+    <div class="details-card" *ngIf="showDetails">
+      <table>
+        <tr>
+          <th>{{ 'DASHBOARD.FIELD' | translate }}</th>
+          <th>{{ 'DASHBOARD.VALUE' | translate }}</th>
+        </tr>
+
+        <tr>
+          <td>{{ 'DASHBOARD.MOBILE_NUMBER' | translate }}</td>
+          <td>{{ userData?.whatsappNumber || "-" }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ 'DASHBOARD.SUBSCRIBED_PLAN' | translate }}</td>
+          <td>{{ userData?.subscribedPlan ? (userData.subscribedPlan | translate) : '-' }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ 'DASHBOARD.TONE_CODE' | translate }}</td>
+          <td>{{ userData?.toneCode || "-" }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ 'DASHBOARD.TONE_NAME' | translate }}</td>
+          <td>{{ userData?.toneName || "-" }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ 'DASHBOARD.BILLING_DATE' | translate }}</td>
+          <td>{{ userData?.setFrom || "-" }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ 'DASHBOARD.RENEWAL_DATE' | translate }}</td>
+          <td>{{ userData?.setTo || "-" }}</td>
+        </tr>
+      </table>
+
+      <div
+        class="message"
+        [ngClass]="{
+          active: userData?.currentRbtActive,
+          inactive: !userData?.currentRbtActive,
+        }"
+      >
+         {{ userData?.message | translate }}
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

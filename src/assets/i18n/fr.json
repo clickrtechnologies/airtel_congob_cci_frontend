@@ -1,0 +1,200 @@
+{
+  "DASHBOARD": {
+    "CHECK_USER_STATUS": "Vérifier le statut de l'utilisateur",
+    "DESCRIPTION": "Consultez les détails de l'abonné et gérez ses tonalités de retour d'appel actives.",
+    "SUBSCRIBER_MOBILE_NUMBER": "Numéro mobile de l'abonné",
+    "ENTER_MOBILE_NUMBER": "Entrez le numéro mobile",
+    "SEARCH": "Rechercher",
+    "FIELD": "Champ",
+    "VALUE": "Valeur",
+    "MOBILE_NUMBER": "Numéro mobile",
+    "SUBSCRIBED_PLAN": "Forfait souscrit",
+    "TONE_CODE": "Code de tonalité",
+    "TONE_NAME": "Nom de la tonalité",
+    "BILLING_DATE": "Date de facturation",
+    "RENEWAL_DATE": "Date de renouvellement",
+    "RBT_FOUND": "RBT actif trouvé",
+    "RBT_NOT_FOUND": "Aucun RBT actif défini",
+    "USER_NOT_FOUND": "Utilisateur introuvable",
+    "DAILY": "Quotidien",
+    "WEEKLY": "Hebdomadaire",
+    "MONTHLY": "Mensuel"
+  },
+  "SIDEBAR": {
+    "USER_STATUS": "Statut de l'utilisateur",
+    "SET_RBT": "Définir RBT",
+    "DEACTIVATE_RBT": "Dés-activer RBT",
+     "SEARCH": "Rechercher les tonalités",
+     "BULK": "Activité en masse"
+  },
+  "SET_RBT": {
+    "TITLE": "Définir une tonalité d'attente",
+    "DESCRIPTION": "Configurer et activer des tonalités personnalisées pour un abonné.",
+    "SUBSCRIPTION_DETAILS": "Détails de l'abonnement",
+    "SUBSCRIPTION_DESC": "Entrez le numéro mobile de l'abonné et sélectionnez une tonalité dans notre catalogue.",
+    "SUBSCRIBER_MOBILE_NUMBER": "Numéro mobile de l'abonné",
+    "ENTER_MOBILE_NUMBER": "Entrez le numéro mobile",
+    "VERIFY": "Vérifier",
+
+    "SUBSCRIBER_INFORMATION": "Informations sur l'abonné",
+    "MOBILE_NUMBER": "Numéro mobile",
+    "STATUS": "Statut",
+    "CURRENT_PACK": "Forfait actuel",
+    "CURRENT_TONE": "Tonalité actuelle",
+
+    "NEW_USER_MESSAGE": "Nouvel utilisateur. Sélectionnez un forfait et définissez une tonalité RBT.",
+    "EXISTING_USER_MESSAGE": "Utilisateur existant. Sélectionnez une nouvelle tonalité pour mettre à jour le RBT.",
+
+    "SELECT_RBT": "Sélectionner une tonalité d'attente",
+    "NO_TONE_SELECTED": "Aucune tonalité sélectionnée",
+    "BROWSE_CATALOG": "Parcourir le catalogue",
+
+    "SERVICE_PACKAGE": "Forfait de service",
+    "DAILY_PACK": "Forfait quotidien",
+    "WEEKLY_PACK": "Forfait hebdomadaire",
+    "MONTHLY_PACK": "Forfait mensuel",
+
+    "RESET_FORM": "Réinitialiser",
+    "ACTIVATE_RBT": "Activer le RBT",
+
+    "CATALOG_TITLE": "Catalogue des tonalités d'attente",
+    "SEARCH_PLACEHOLDER": "Rechercher par nom, code ou catégorie",
+
+    "TONE_CODE": "Code de tonalité",
+    "TONE_NAME": "Nom de la tonalité",
+    "CATEGORY": "Catégorie",
+    "UPDATE_TIME": "Date de mise à jour",
+    "SELECT": "Sélectionner",
+
+    "SUCCESS": "Succès",
+    "SUCCESS_MESSAGE": "La tonalité d'attente a été activée avec succès pour cet abonné.",
+    "OK": "OK"
+  },
+  "DEACTIVATE_RBT": {
+    "TITLE": "Désactiver le RBT",
+    "DESCRIPTION": "Gérer et supprimer les tonalités d'attente actives pour les abonnés.",
+
+    "SUBSCRIBER_LOOKUP": "Recherche d'abonné",
+    "LOOKUP_DESCRIPTION": "Entrez le numéro mobile de l'abonné pour récupérer les tonalités d'attente actuellement actives.",
+
+    "ENTER_MOBILE_NUMBER": "Entrez le numéro mobile",
+    "SEARCH": "Rechercher",
+
+    "SUBSCRIBER_DETAILS": "Détails de l'abonné",
+
+    "FIELD": "Champ",
+    "VALUE": "Valeur",
+
+    "MOBILE_NUMBER": "Numéro mobile",
+    "CURRENT_PACK": "Forfait actuel",
+    "TONE_CODE": "Code de tonalité",
+    "TONE_NAME": "Nom de la tonalité",
+    "BILLING_DATE": "Date de facturation",
+    "RENEW_DATE": "Date de renouvellement",
+
+    "DEACTIVATE_RBT": "Désactiver le RBT",
+
+    "CONFIRM_DEACTIVATION": "Confirmer la désactivation",
+    "CONFIRM_MESSAGE": "Êtes-vous sûr de vouloir désactiver la tonalité d'attente actuellement active pour cet abonné ?",
+
+    "CANCEL": "Annuler",
+    "CONFIRM": "Confirmer",
+
+    "SUCCESS_MESSAGE": "La tonalité d'attente a été désactivée avec succès."
+  },
+    "HEADER": {
+    "LOGOUT": "Déconnexion"
+  },
+    "SEARCH": {
+      "TITLE": "Catalogue des tonalités",
+      "DESCRIPTION": "Parcourez et recherchez dans la bibliothèque musicale officielle RBT pour aider les abonnés.",
+      "CATEGORY": "Catégorie",
+      "ARTIST": "Artiste",          
+      "SORT": "Trier par",
+      "ALL": "Tous",
+      "DEFAULT": "Par défaut",
+      "NEWEST": "Le plus récent",
+      "OLDEST": "Le plus ancien",
+      "RELEASE": "Date de sortie",
+      "ACTION": "Action",
+      "SET_RBT": "Définir comme RBT",
+      "UPDATE_RBT": "Mettre à jour le RBT",
+      "SEARCH_PLACEHOLDER": "Rechercher par nom, code ou artiste...",
+      "CANCEL": "Annuler",
+      "STATUS": "Statut",
+      "ACTIVE": "Actif",
+      "INACTIVE": "Inactif",
+      "NO_TONE_SELECTED": "Aucune tonalité sélectionnée",
+      "SELECT": "Sélectionner",
+      "SUBSCRIBER_INFORMATION": "Informations sur l'abonné",
+      "MOBILE_NUMBER": "Numéro mobile",
+      "CURRENT_PACK": "Forfait actuel",
+      "CURRENT_TONE": "Tonalité actuelle",
+      "SUBSCRIBER_MOBILE_NUMBER": "Numéro mobile de l'abonné",
+      "ENTER_MOBILE_NUMBER": "Entrez le numéro mobile de l'abonné",
+      "SUBSCRIPTION_DETAILS": "Détails de l'abonnement",
+      "SUBSCRIPTION_DESC": "Entrez le numéro mobile de l'abonné et sélectionnez une tonalité dans notre catalogue.",
+      "NO_SUBSCRIBER_FOUND": "Aucun abonné trouvé",
+      "NEW_USER_MESSAGE": "Nouvel utilisateur. Sélectionnez un forfait et définissez une tonalité RBT.",
+      "EXISTING_USER_MESSAGE": "Utilisateur existant. Sélectionnez une nouvelle tonalité pour mettre à jour le RBT." ,
+      "PREVIEW": "Aperçu",
+      "TONE_NAME": "Nom de la tonalité",
+      "TONE_ID": "ID de la tonalité",
+    "ACTIVATION_PACK": "Forfait d'activation",
+    "DAILY_PACK": "quotidien",
+    "WEEKLY_PACK": "hebdomadaire",
+    "MONTHLY_PACK": "mensuel"
+    },
+  "BULK": {
+    "TITLE": "Téléchargement en masse",
+    "BREADCRUMB_PARENT": "Gestion RBT",
+    "BREADCRUMB_CURRENT": "Téléchargement en masse",
+
+    "DOWNLOAD_TEMPLATE": "Télécharger le modèle CSV",
+
+    "UPLOAD_TITLE": "Télécharger les données d'abonnement",
+    "UPLOAD_DESC": "Glissez-déposez votre fichier ici ou utilisez le bouton Parcourir.",
+    "UPLOAD_SUPPORT": "Prend en charge .csv, .xlsx, .xls (10 Mo max)",
+
+    "NO_FILE": "Aucun fichier sélectionné",
+    "BROWSE": "Parcourir",
+
+    "TOTAL_RECORDS": "NOMBRE TOTAL D'ENREGISTREMENTS",
+    "VALID_RECORDS": "ENREGISTREMENTS VALIDES",
+    "INVALID_RECORDS": "ENREGISTREMENTS INVALIDES",
+
+    "PREVIEW_TITLE": "Aperçu des enregistrements",
+    "PREVIEW_SUBTITLE": "Vérifiez rapidement le mappage et l'intégrité des données avant le traitement",
+
+    "MOBILE_NUMBER": "NUMÉRO DE MOBILE",
+    "TONE_ID": "ID DE TONALITÉ",
+    "TONE_NAME": "NOM DE LA TONALITÉ",
+    "PACKAGE_PLAN": "FORFAIT",
+    "STATUS": "STATUT",
+
+    "VALID": "Valide",
+
+    "SHOWING_PREVIEW": "Affichage de {{count}} enregistrements pour l'aperçu.",
+
+    "REUPLOAD": "Téléverser à nouveau",
+    "PROCESS": "Traiter maintenant",
+    "PROCESSING": "Traitement...",
+
+    "HISTORY_TITLE": "Transactions précédentes",
+    "FILTER_JOB": "Filtrer par ID de tâche.",
+    "EXPORT_HISTORY": "Exporter l'historique",
+
+    "TRANSACTION_DATE": "DATE DE TRANSACTION",
+    "PREVIEW_ID": "ID D'APERÇU",
+    "FILE_NAME": "NOM DU FICHIER",
+    "RECORDS": "ENREGISTREMENTS",
+    "ACTION": "ACTION",
+
+    "COMPLETED": "Terminé",
+    "FAILED": "Échec",
+    "RETRY": "Réessayer",
+
+    "REPORT": "Rapport"
+  }
+
+}

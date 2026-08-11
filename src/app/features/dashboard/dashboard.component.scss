@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.page-content {
+  padding-top: 85px;      
+  padding-left: 240px;    
+  padding-right: 20px;
+  padding-bottom: 30px;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Cards */
+.search-card,
+.details-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #ececec;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+}
+
+.search-card {
+  margin-bottom: 24px;
+}
+.search-card p {
+  color: #6b7280;
+  font-size: 15px;
+  padding-bottom: 15px;
+  margin-top: 0;
+}
+.search-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+.search-card h4 {
+  font-size: 15px;
+  font-weight: 550;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* Search */
+.search-section {
+  display: flex;
+  gap: 12px;
+}
+
+.search-section input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.search-section input:focus {
+  outline: none;
+  border-color: #0d6efd;
+}
+
+.search-btn {
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  min-width: 180px;
+}
+
+.search-btn:hover {
+  background: #0d6efd;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  background: #0d6efd;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+table td {
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Status Message */
+.message {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+@media (max-width: 768px) {
+
+  .page-content {
+    padding-top: 80px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .search-section {
+    flex-direction: column;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .search-card,
+  .details-card {
+    padding: 18px;
+  }
+}

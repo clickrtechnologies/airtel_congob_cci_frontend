@@ -1,0 +1,263 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-content">
+  <div class="container">
+
+    <div class="page-header">
+      <h1>{{ 'SEARCH.TITLE' | translate }}</h1>
+      <p>{{ 'SEARCH.DESCRIPTION' | translate }}</p>
+    </div>
+
+    <div class="filter-container">
+
+      <div class="search-box">
+        <mat-icon>search</mat-icon>
+
+        <input
+          type="text"
+          placeholder="{{ 'SEARCH.SEARCH_PLACEHOLDER' | translate }}"
+          [(ngModel)]="searchText"
+          (input)="filterData()">
+      </div>
+
+      <div class="filter-item">
+        <label>{{ 'SEARCH.CATEGORY' | translate }}:</label>
+
+        <select [(ngModel)]="selectedGenre" (change)="filterData()">
+  <option value="">{{ 'SEARCH.ALL' | translate }}</option>
+  <option *ngFor="let genre of genres" [value]="genre">
+    {{ genre }}
+  </option>
+</select>
+</div>
+      <div class="filter-item">
+        <label>{{ 'SEARCH.ARTIST' | translate }}:</label>
+
+        <select [(ngModel)]="selectedLength" (change)="filterData()">
+          <option value="">{{ 'SEARCH.ALL' | translate }}</option>
+          <option *ngFor="let length of lengths" [value]="length">
+            {{ length }}
+          </option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label>{{ 'SEARCH.SORT' | translate }}:</label>
+
+        <select [(ngModel)]="selectedSort" (change)="filterData()">
+          <option value="">{{ 'SEARCH.DEFAULT' | translate }}</option>
+          <option value="newest">{{ 'SEARCH.NEWEST' | translate }}</option>
+          <option value="oldest">{{ 'SEARCH.OLDEST' | translate }}</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="table-container">
+
+      <table mat-table [dataSource]="dataSource" class="tone-table">
+        <ng-container matColumnDef="preview">
+          <th mat-header-cell *matHeaderCellDef>{{ 'SEARCH.PREVIEW' | translate }}</th>
+
+          <td mat-cell *matCellDef="let row">
+
+   <button
+    class="preview-btn"
+    (click)="playAudio(row.preview)">
+
+    <mat-icon *ngIf="playingUrl !== row.preview || !isPlaying">
+        play_arrow
+    </mat-icon>
+
+    <mat-icon *ngIf="playingUrl === row.preview && isPlaying">
+        pause
+    </mat-icon>
+
+</button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="toneName">
+          <th mat-header-cell *matHeaderCellDef>{{ 'SEARCH.TONE_NAME' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{row.toneName}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="toneId">
+          <th mat-header-cell *matHeaderCellDef>{{ 'SEARCH.TONE_ID' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{row.toneId}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>{{ 'SEARCH.CATEGORY' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{row.category}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="artist">
+          <th mat-header-cell *matHeaderCellDef>{{ 'SEARCH.ARTIST' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{row.artist}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="release">
+          <th mat-header-cell *matHeaderCellDef>{{ 'SEARCH.RELEASE' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{row.release}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>{{ 'SEARCH.ACTION' | translate }}</th>
+
+          <td mat-cell *matCellDef="let row">
+
+            <button
+              class="rbt-btn"
+              (click)="openPopup(row)">
+              <mat-icon>add</mat-icon>
+              {{ 'SEARCH.SET_RBT' | translate }}
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+   <mat-paginator
+    [length]="totalRecords"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5]"
+    [hidePageSize]="true"
+    (page)="pageChanged($event)"
+    showFirstLastButtons>
+</mat-paginator>
+
+    </div>
+  </div>
+</div>
+
+  <div class="modal-overlay" *ngIf="showSetRbtPopup">
+
+  <div class="set-rbt-modal">
+    <div class="details-card">
+      <div class="popup-header">
+        <h3>{{ 'SEARCH.SUBSCRIPTION_DETAILS' | translate }}</h3>
+        <button
+          class="close-btn"
+          (click)="closePopup()">
+          ✕
+        </button>
+      </div>
+
+      <div class="verify-section">
+        <label>{{ 'SEARCH.SUBSCRIBER_MOBILE_NUMBER' | translate }}</label>
+        <div class="verify-row">
+          <input
+            type="text"
+            [(ngModel)]="mobileNumber"
+            placeholder="{{ 'SEARCH.ENTER_MOBILE_NUMBER' | translate }}">
+
+          <button
+            class="verify-btn"
+            (click)="verifySubscriber()">
+            {{ 'SEARCH.VERIFY' | translate }}
+          </button>
+        </div>
+      </div>
+
+<div
+  class="subscriber-info"
+  *ngIf="showSubscriberInfo">
+  <table>
+
+    <tr>
+      <td>{{ 'SEARCH.MOBILE_NUMBER' | translate }}</td>
+      <td>{{ subscriber.mobile }}</td>
+    </tr>
+
+    <tr *ngIf="subscriber.status != 'NEW USER'">
+      <td>{{ 'SEARCH.STATUS' | translate }}</td>
+      <td>{{ subscriber.status }}</td>
+    </tr>
+
+    <tr *ngIf="subscriber.status != 'NEW USER'">
+      <td>{{ 'SEARCH.CURRENT_PACK' | translate }}</td>
+      <td>{{ subscriber.packName | translate }}</td>
+    </tr>
+
+  </table>
+
+  <div
+    class="subscriber-message new-user"
+    *ngIf="subscriber.status == 'NEW USER'">
+    {{ 'SEARCH.NEW_USER_MESSAGE' | translate }}
+  </div>
+
+  <div
+    class="subscriber-message existing-user"
+    *ngIf="subscriber.status != 'NEW USER'">
+    {{ 'SEARCH.EXISTING_USER_MESSAGE' | translate }}
+  </div>
+</div>
+
+      <div
+        class="tone-section"
+        *ngIf="showSubscriberInfo">
+        <table class="tone-details">
+          <tr>
+            <td>{{ 'SEARCH.TONE_NAME' | translate }}</td>
+            <td>{{ selectedTone?.toneName }}</td>
+          </tr>
+
+          <tr>
+            <td>{{ 'SEARCH.TONE_ID' | translate }}</td>
+            <td>{{ selectedTone?.toneId }}</td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div
+        class="config-section"
+        *ngIf="showSubscriberInfo">
+
+        <label>{{ 'SEARCH.ACTIVATION_PACK' | translate }}</label>
+
+        <select [(ngModel)]="servicePackage">
+
+          <option value="TSUBD">{{ 'SEARCH.DAILY_PACK' | translate }}</option>
+          <option value="TSUBW">{{ 'SEARCH.WEEKLY_PACK' | translate }}</option>
+          <option value="TSUBM">{{ 'SEARCH.MONTHLY_PACK' | translate }}</option>
+
+        </select>
+      </div>
+
+      <div
+        class="action-buttons"
+        *ngIf="showSubscriberInfo">
+
+        <button
+          class="reset-btn"
+          (click)="closePopup()">
+          {{ 'SEARCH.CANCEL' | translate }}
+        </button>
+
+        <button
+          *ngIf="subscriber.status == 'NEW USER'"
+          class="activate-btn"
+          (click)="activateTone()">
+          {{ 'SEARCH.SET_RBT' | translate }}
+        </button>
+
+        <button
+          *ngIf="subscriber.status != 'NEW USER'"
+          class="activate-btn"
+          (click)="activateTone()">
+          {{ 'SEARCH.UPDATE_RBT' | translate }}
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,209 @@
+{
+  "DASHBOARD": {
+    "CHECK_USER_STATUS": "Check User Status",
+    "DESCRIPTION": "Lookup subscriber details and manage their active ring back tones.",
+    "SUBSCRIBER_MOBILE_NUMBER": "Subscriber Mobile Number",
+    "ENTER_MOBILE_NUMBER": "Enter Mobile Number",
+    "SEARCH": "Search",
+    "FIELD": "Field",
+    "VALUE": "Value",
+    "MOBILE_NUMBER": "Mobile Number",
+    "SUBSCRIBED_PLAN": "Subscribed Plan",
+    "TONE_CODE": "Tone Code",
+    "TONE_NAME": "Tone Name",
+    "BILLING_DATE": "Billing Date",
+    "RENEWAL_DATE": "Renewal Date",
+    "RBT_FOUND": "Current active RBT found",
+    "RBT_NOT_FOUND": "Current active RBT not set",
+    "USER_NOT_FOUND": "User not found",
+    "DAILY": "Daily",
+    "WEEKLY": "Weekly",
+    "MONTHLY": "Monthly"
+  },
+  "SIDEBAR": {
+    "USER_STATUS": "Check User Status",
+    "SET_RBT": "Set RBT",
+    "DEACTIVATE_RBT": "De-activate RBT",
+    "SEARCH": "Search Tones",
+    "BULK": "Bulk Activity"
+  },
+  "SET_RBT": {
+    "TITLE": "Set Ring Back Tone",
+    "DESCRIPTION": "Configure and activate custom caller tunes for a single subscriber.",
+    "SUBSCRIPTION_DETAILS": "Subscription Details",
+    "SUBSCRIPTION_DESC": "Enter subscribers mobile number and select a tone from our catalog.",
+    "SUBSCRIBER_MOBILE_NUMBER": "Subscriber Mobile Number",
+    "ENTER_MOBILE_NUMBER": "Enter Mobile Number",
+    "VERIFY": "Verify",
+
+    "SUBSCRIBER_INFORMATION": "Subscriber Information",
+    "MOBILE_NUMBER": "Mobile Number",
+    "STATUS": "Status",
+    "CURRENT_PACK": "Current Pack",
+    "CURRENT_TONE": "Current Tone",
+
+    "NEW_USER_MESSAGE": "New user. Select Pack and Set RBT Tone.",
+    "EXISTING_USER_MESSAGE": "Existing user. Select a new tone to update RBT.",
+
+    "SELECT_RBT": "Select Ring Back Tone",
+    "NO_TONE_SELECTED": "No tone selected",
+    "BROWSE_CATALOG": "Browse Catalog",
+
+    "SERVICE_PACKAGE": "Service Package",
+    "DAILY_PACK": "Daily Pack",
+    "WEEKLY_PACK": "Weekly Pack",
+    "MONTHLY_PACK": "Monthly Pack",
+
+    "RESET_FORM": "Reset Form",
+    "ACTIVATE_RBT": "Activate RBT",
+
+    "CATALOG_TITLE": "Ring Back Tone Catalog",
+    "SEARCH_PLACEHOLDER": "Search by Tone Name, Tone Code or Category",
+
+    "TONE_CODE": "Tone Code",
+    "TONE_NAME": "Tone Name",
+    "CATEGORY": "Category",
+    "UPDATE_TIME": "Update Time",
+    "SELECT": "Select",
+
+    "SUCCESS": "Success",
+    "SUCCESS_MESSAGE": "Ring Back Tone has been activated successfully for this subscriber.",
+    "OK": "OK"
+  },
+  "DEACTIVATE_RBT": {
+    "TITLE": "Deactivate RBT",
+    "DESCRIPTION": "Manage and remove active ring back tones for subscribers.",
+
+    "SUBSCRIBER_LOOKUP": "Subscriber Lookup",
+    "LOOKUP_DESCRIPTION": "Enter the mobile number of the subscriber to fetch currently active ring back tones.",
+
+    "ENTER_MOBILE_NUMBER": "Enter Mobile Number",
+    "SEARCH": "Search",
+
+    "SUBSCRIBER_DETAILS": "Subscriber Details",
+
+    "FIELD": "Field",
+    "VALUE": "Value",
+
+    "MOBILE_NUMBER": "Mobile Number",
+    "CURRENT_PACK": "Current Pack",
+    "TONE_CODE": "Tone Code",
+    "TONE_NAME": "Tone Name",
+    "BILLING_DATE": "Billing Date",
+    "RENEW_DATE": "Renew Date",
+
+    "DEACTIVATE_RBT": "Deactivate RBT",
+
+    "CONFIRM_DEACTIVATION": "Confirm Deactivation",
+    "CONFIRM_MESSAGE": "Are you sure you want to deactivate the currently active ring back tone for this subscriber?",
+
+    "CANCEL": "Cancel",
+    "CONFIRM": "Confirm",
+
+    "SUCCESS_MESSAGE": "Ring Back Tone successfully deactivated."
+  },
+    "HEADER": {
+    "LOGOUT": "Logout"
+  },
+  "SEARCH": {
+    "TITLE": "Search Tones",
+    "DESCRIPTION": "Browse the ringtone catalog and set or update RBT.",
+
+    "SEARCH_PLACEHOLDER": "Search by Tone Name, ID or Artist...",
+
+    "CATEGORY": "Category",
+    "ARTIST": "Artist",
+    "SORT": "Sort",
+
+    "ALL": "All",
+    "DEFAULT": "Default",
+    "NEWEST": "Newest",
+    "OLDEST": "Oldest",
+
+    "PREVIEW": "Preview",
+    "TONE_NAME": "Tone Name",
+    "TONE_ID": "Tone ID",
+    "RELEASE": "Release",
+    "ACTION": "Action",
+
+    "SET_RBT": "Set as RBT",
+    "UPDATE_RBT": "Update RBT",
+
+    "SUBSCRIPTION_DETAILS": "Subscription Details",
+
+    "SUBSCRIBER_MOBILE_NUMBER": "Subscriber Mobile Number",
+    "ENTER_MOBILE_NUMBER": "Enter subscriber mobile number",
+
+    "VERIFY": "Verify",
+
+    "MOBILE_NUMBER": "Mobile Number",
+    "STATUS": "Status",
+    "CURRENT_PACK": "Current Pack",
+
+    "NEW_USER_MESSAGE": "New User - Set RBT",
+    "EXISTING_USER_MESSAGE": "Existing User - Update RBT",
+
+    "ACTIVATION_PACK": "Activation Pack",
+
+    "DAILY_PACK": "Daily",
+    "WEEKLY_PACK": "Weekly",
+    "MONTHLY_PACK": "Monthly",
+
+    "CANCEL": "Cancel",
+
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive"
+  },
+  "BULK": {
+    "TITLE": "Bulk Upload",
+    "BREADCRUMB_PARENT": "RBT Management",
+    "BREADCRUMB_CURRENT": "Bulk Upload",
+
+    "DOWNLOAD_TEMPLATE": "Download CSV Template",
+
+    "UPLOAD_TITLE": "Upload Subscription Data",
+    "UPLOAD_DESC": "Drag and drop your file here, or use the browse button.",
+    "UPLOAD_SUPPORT": "Supports .csv, .xlsx, .xls (Max 10MB)",
+
+    "NO_FILE": "No file selected",
+    "BROWSE": "Browse",
+
+    "TOTAL_RECORDS": "TOTAL RECORDS",
+    "VALID_RECORDS": "VALID RECORDS",
+    "INVALID_RECORDS": "INVALID RECORDS",
+
+    "PREVIEW_TITLE": "Record Preview",
+    "PREVIEW_SUBTITLE": "Quickly verify mapping and data integrity before processing",
+
+    "MOBILE_NUMBER": "MOBILE NUMBER",
+    "TONE_ID": "TONE ID",
+    "TONE_NAME": "TONE NAME",
+    "PACKAGE_PLAN": "PACKAGE PLAN",
+    "STATUS": "STATUS",
+
+    "VALID": "Valid",
+
+    "SHOWING_PREVIEW": "Showing {{count}} records for preview.",
+
+    "REUPLOAD": "Re-upload File",
+    "PROCESS": "Process Now",
+    "PROCESSING": "Processing...",
+
+    "HISTORY_TITLE": "Previous Bulk Transactions",
+    "FILTER_JOB": "Filter by Job ID.",
+    "EXPORT_HISTORY": "Export History",
+
+    "TRANSACTION_DATE": "TRANSACTION DATE",
+    "PREVIEW_ID": "PREVIEW ID",
+    "FILE_NAME": "FILE NAME",
+    "RECORDS": "RECORDS",
+    "ACTION": "ACTION",
+
+    "COMPLETED": "Completed",
+    "FAILED": "Failed",
+    "RETRY": "Retry",
+
+    "REPORT": "Report"
+
+  }
+  }

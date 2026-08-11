@@ -1,0 +1,254 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-content">
+  <div class="container">
+
+    <div class="page-header">
+      <h1>{{ 'SET_RBT.TITLE' | translate }}</h1>
+      <p>
+        {{ 'SET_RBT.DESCRIPTION' | translate }}
+      </p>
+    </div>
+
+    <div class="details-card">
+
+      <h3>{{ 'SET_RBT.SUBSCRIPTION_DETAILS' | translate }}</h3>
+      <p>{{ 'SET_RBT.SUBSCRIPTION_DESC' | translate }}</p>
+
+      <div class="verify-section">
+
+        <div class="input-group">
+          <label>{{ 'SET_RBT.SUBSCRIBER_MOBILE_NUMBER' | translate }}</label>
+
+          <div class="verify-row">
+            <input
+              type="text"
+              [(ngModel)]="mobileNumber"
+              placeholder="{{ 'SET_RBT.ENTER_MOBILE_NUMBER' | translate }}">
+
+            <button
+              class="verify-btn"
+              (click)="verifySubscriber()">
+              {{ 'SET_RBT.VERIFY' | translate }}
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Subscriber Details -->
+
+      <div
+        class="subscriber-info"
+        *ngIf="showSubscriberInfo">
+
+        <h4>{{ 'SET_RBT.SUBSCRIBER_INFORMATION' | translate }}</h4>
+
+       <table>
+
+  <tr>
+    <td>{{ 'SET_RBT.MOBILE_NUMBER' | translate }}</td>
+    <td>{{ subscriber.mobile }}</td>
+  </tr>
+
+ <tr *ngIf="subscriber.status !== 'NEW USER'">
+    <td>{{ 'SET_RBT.STATUS' | translate }}</td>
+    <td>{{ subscriber.status }}</td>
+  </tr>
+
+  <tr *ngIf="subscriber.status !== 'NEW USER'">
+    <td>{{ 'SET_RBT.CURRENT_PACK' | translate }}</td>
+  <td>{{ subscriber.packName ? (subscriber.packName | translate) : '-' }}</td>
+  </tr>
+
+  <tr *ngIf="subscriber.status !== 'NEW USER'">
+    <td>{{ 'SET_RBT.CURRENT_TONE' | translate }}</td>
+    <td>{{ subscriber.toneName || '-' }}</td>
+  </tr>
+
+</table>
+
+<div
+  class="subscriber-message"
+  [ngClass]="subscriber.status === 'NEW USER' ? 'new-user' : 'existing-user'">
+
+  {{
+    subscriber.status === 'NEW USER'
+      ? ('SET_RBT.NEW_USER_MESSAGE' | translate)
+      : ('SET_RBT.EXISTING_USER_MESSAGE' | translate)
+  }}
+
+</div>
+
+      </div>
+
+      <!-- Tone Selection -->
+
+      <div
+        class="tone-section"
+        *ngIf="showSubscriberInfo">
+
+        <h4>{{ 'SET_RBT.SELECT_RBT' | translate }}</h4>
+
+        <div class="tone-row">
+
+       <input
+            type="text"
+            [value]="selectedTone?.toneName || ''"
+            placeholder="{{ 'SET_RBT.NO_TONE_SELECTED' | translate }}"
+            readonly>
+          <button
+            class="browse-btn"
+            (click)="showCatalogPopup = true">
+
+            {{ 'SET_RBT.BROWSE_CATALOG' | translate }}
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Configuration -->
+
+      <div
+        class="config-section"
+        *ngIf="showSubscriberInfo">
+
+        <div class="config-grid">
+
+          <div>
+  <label>{{ 'SET_RBT.SERVICE_PACKAGE' | translate }}</label>
+
+  <select [(ngModel)]="servicePackage">
+
+    <option value="TSUBD">
+      {{ 'SET_RBT.DAILY_PACK' | translate }}
+    </option>
+
+    <option value="TSUBW">
+      {{ 'SET_RBT.WEEKLY_PACK' | translate }}
+    </option>
+
+    <option value="TSUBM">
+      {{ 'SET_RBT.MONTHLY_PACK' | translate }}
+    </option>
+
+  </select>
+
+</div>
+        </div>
+
+      </div>
+
+      <div
+        class="action-buttons"
+        *ngIf="showSubscriberInfo">
+
+        <button
+          class="reset-btn"
+          (click)="resetForm()">
+
+          {{ 'SET_RBT.RESET_FORM' | translate }}
+
+        </button>
+
+        <button
+          class="activate-btn"
+          (click)="activateTone()">
+
+          {{ 'SET_RBT.ACTIVATE_RBT' | translate }}
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div
+  class="modal-overlay"
+  *ngIf="showCatalogPopup">
+
+  <div class="catalog-modal">
+<div class="catalog-header">
+
+    <h3>{{ 'SET_RBT.CATALOG_TITLE' | translate }}</h3>
+    <button
+    class="close-btn"
+    (click)="showCatalogPopup = false">
+
+    ✕
+
+  </button>
+</div>
+<div class="catalog-search">
+
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="{{ 'SET_RBT.SEARCH_PLACEHOLDER' | translate }}">
+
+</div>
+
+<div class="catalog-table-wrapper">
+
+  <table>
+
+    <tr>
+      <th>{{ 'SET_RBT.TONE_CODE' | translate }}</th>
+      <th>{{ 'SET_RBT.TONE_NAME' | translate }}</th>
+      <th>{{ 'SET_RBT.CATEGORY' | translate }}</th>
+      <th>{{ 'SET_RBT.UPDATE_TIME' | translate }}</th>
+      <th></th>
+    </tr>
+
+    <tr *ngFor="let tone of filteredToneList()">
+
+      <td>{{ tone.toneCode }}</td>
+      <td>{{ tone.toneName }}</td>
+      <td>{{ tone.category }}</td>
+      <td>{{ tone.updateTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+
+      <td>
+        <button
+          class="select-btn"
+          (click)="selectTone(tone)">
+          {{ 'SET_RBT.SELECT' | translate }}
+        </button>
+      </td>
+
+    </tr>
+
+  </table>
+
+</div>
+
+  </div>
+
+</div>
+<div
+  class="modal-overlay"
+  *ngIf="showSuccessPopup">
+
+  <div class="success-modal">
+
+    <h3>{{ 'SET_RBT.SUCCESS' | translate }}</h3>
+
+    <p>
+      {{ 'SET_RBT.SUCCESS_MESSAGE' | translate }}
+    </p>
+
+    <button
+  class="ok-btn"
+  (click)="closeSuccessPopup()">
+
+  {{ 'SET_RBT.OK' | translate }}
+
+</button>
+
+  </div>
+
+</div>

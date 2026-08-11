@@ -1,0 +1,342 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="page-content">
+  <div class="container">
+<div class="search-card">
+
+  <h2>{{ 'BULK.TITLE' | translate }}</h2>
+
+  <div class="breadcrumb-row">
+
+    <div class="breadcrumb">
+      <span class="parent">{{'BULK.BREADCRUMB_PARENT' | translate}}</span>
+      <span class="separator">&gt;</span>
+      <span class="current">{{ 'BULK.BREADCRUMB_CURRENT' | translate }}</span>
+    </div>
+
+    <button
+  class="download-btn"
+  (click)="downloadTemplate()">
+
+  <mat-icon>download</mat-icon>
+   {{ 'BULK.DOWNLOAD_TEMPLATE' | translate }}
+
+</button>
+
+  </div>
+
+  <div class="upload-area">
+
+  <button
+  class="upload-btn"
+  type="button"
+  (click)="fileInput.click()">
+
+  <mat-icon>upload</mat-icon>
+
+</button>
+
+    <h3>{{ 'BULK.UPLOAD_TITLE' | translate }}</h3>
+
+    <p>
+        {{ 'BULK.UPLOAD_DESC' | translate }}<br>
+  {{ 'BULK.UPLOAD_SUPPORT' | translate }}
+    </p>
+
+<div class="file-picker">
+
+  <span class="file-name">
+    {{ selectedFile ? selectedFile.name : ('BULK.NO_FILE' | translate) }}
+  </span>
+
+  <button
+    type="button"
+    class="browse-btn"
+    (click)="fileInput.click()">
+
+   
+  {{ 'BULK.BROWSE' | translate }}
+
+  </button>
+
+</div>
+
+<input
+  #fileInput
+  type="file"
+  accept=".xlsx,.xls,.csv"
+  hidden
+  (change)="onFileSelected($event)">
+
+  </div>
+
+  <div class="summary-cards">
+  <div class="summary-card">
+
+    <div class="summary-icon total">
+      <mat-icon>description</mat-icon>
+    </div>
+
+    <div class="summary-content">
+      <span class="summary-title">  {{ 'BULK.TOTAL_RECORDS' | translate }}</span>
+      <h2>{{totalRecords}}</h2>
+    </div>
+
+  </div>
+  <div class="summary-card">
+
+    <div class="summary-icon valid">
+      <mat-icon>check_circle</mat-icon>
+    </div>
+
+    <div class="summary-content">
+      <span class="summary-title"> {{ 'BULK.VALID_RECORDS' | translate }}</span>
+      <h2>{{validRecords}}</h2>
+    </div>
+
+  </div>
+  <div class="summary-card">
+
+    <div class="summary-icon invalid">
+      <mat-icon>error</mat-icon>
+    </div>
+
+    <div class="summary-content">
+      <span class="summary-title"> {{ 'BULK.INVALID_RECORDS' | translate }}</span>
+      <h2>{{invalidRecords}}</h2>
+    </div>
+
+  </div>
+ </div>
+  <div class="preview-card">
+
+  <div class="preview-header">
+
+    <div>
+      <h3>{{ 'BULK.PREVIEW_TITLE' | translate }}</h3>
+      <p>{{ 'BULK.PREVIEW_SUBTITLE' | translate }}</p>
+    </div>
+
+  </div>
+
+  <div class="table-wrapper">
+
+    <table class="preview-table">
+
+      <thead>
+
+      <tr>
+
+       <th>{{ 'BULK.MOBILE_NUMBER' | translate }}</th>
+        <th>{{ 'BULK.TONE_ID' | translate }}</th>
+        <th>{{ 'BULK.TONE_NAME' | translate }}</th>
+        <th>{{ 'BULK.PACKAGE_PLAN' | translate }}</th>
+        <th>{{ 'BULK.STATUS' | translate }}</th>
+
+      </tr>
+
+      </thead>
+
+      <tbody>
+
+<tr *ngFor="let row of previewData">
+
+    <td>{{row.mobile}}</td>
+
+    <td>{{row.toneId}}</td>
+    <td>{{row.toneName}}</td>
+
+    <td>{{row.packagePlan}}</td>
+
+    <td>
+
+        <span
+            class="status valid"
+            *ngIf="row.valid">
+
+            <mat-icon>check_circle</mat-icon>
+
+            
+    {{ 'BULK.VALID' | translate }}
+
+        </span>
+
+        <span
+            class="status invalid"
+            *ngIf="!row.valid">
+
+            <mat-icon>error</mat-icon>
+
+            {{row.message}}
+
+        </span>
+
+    </td>
+
+</tr>
+
+</tbody>
+
+    </table>
+
+  </div>
+
+  <div class="preview-footer">
+
+    <p>
+      {{ 'BULK.SHOWING_PREVIEW' | translate:{count: previewData.length} }}
+    </p>
+
+    <div class="footer-buttons">
+
+      <button
+  type="button"
+  class="secondary-btn"
+  (click)="fileInput.click()">
+
+  {{ 'BULK.REUPLOAD' | translate }}
+
+</button>
+
+<button
+    class="primary-btn"
+    [disabled]="invalidRecords > 0 || totalRecords === 0 || processing"
+    (click)="processFile()">
+
+    <mat-icon *ngIf="!processing">play_arrow</mat-icon>
+
+        {{ processing
+        ? ('BULK.PROCESSING' | translate)
+        : ('BULK.PROCESS' | translate) }}
+
+</button>
+
+    </div>
+
+</div>
+
+</div>
+<div class="history-card">
+
+  <div class="history-header">
+
+    <div class="history-title">
+      <mat-icon>history</mat-icon>
+      <h3>{{ 'BULK.HISTORY_TITLE' | translate }}</h3>
+    </div>
+
+    <div class="history-actions">
+
+   <input
+  type="text"
+  placeholder="{{ 'BULK.FILTER_JOB' | translate }}"
+  [(ngModel)]="searchPreviewId"
+  (keyup)="searchHistory()">
+
+      <button
+  class="export-btn"
+  (click)="exportHistory()">
+
+  {{ 'BULK.EXPORT_HISTORY' | translate }}
+
+</button>
+
+    </div>
+
+  </div>
+
+  <table class="history-table">
+
+    <thead>
+
+      <tr>
+       <th>{{ 'BULK.TRANSACTION_DATE' | translate }}</th>
+<th>{{ 'BULK.PREVIEW_ID' | translate }}</th>
+<th>{{ 'BULK.FILE_NAME' | translate }}</th>
+<th>{{ 'BULK.RECORDS' | translate }}</th>
+<th>{{ 'BULK.STATUS' | translate }}</th>
+<th>{{ 'BULK.ACTION' | translate }}</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let job of bulkHistory">
+
+        <td>{{job.transactionDate | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+
+        <td class="job-id">
+          {{job.previewId}}
+        </td>
+
+        <td>
+
+          <mat-icon class="file-icon">
+            description
+          </mat-icon>
+
+          {{job.fileName}}
+
+        </td>
+
+        <td>{{job.totalRecords}}</td>
+
+       <td>
+
+  <span
+    class="status completed"
+    *ngIf="job.status == 1">
+
+
+  {{ 'BULK.COMPLETED' | translate }}
+
+  </span>
+
+  <span
+    class="status processing"
+    *ngIf="job.status == 15">
+
+    {{ 'BULK.RETRY' | translate }}
+
+  </span>
+
+  <span
+    class="status failed"
+    *ngIf="job.status == 0">
+
+     {{ 'BULK.FAILED' | translate }}
+
+  </span>
+
+</td>
+
+        <td>
+
+        <button
+  class="report-btn"
+  (click)="downloadReport(job.previewId)">
+
+  <mat-icon>download</mat-icon>
+
+  {{ 'BULK.REPORT' | translate }}
+
+</button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+   <mat-paginator
+  [length]="historyTotalRecords"
+  [pageSize]="5"
+  [hidePageSize]="true"
+  showFirstLastButtons
+  (page)="pageChanged($event)">
+</mat-paginator>
+</div>
+</div>
+<app-footer></app-footer>

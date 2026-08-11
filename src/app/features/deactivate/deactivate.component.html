@@ -1,0 +1,131 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="page-content">
+
+  <div class="container">
+    <div class="page-header">
+      <h1>{{ 'DEACTIVATE_RBT.TITLE' | translate }}</h1>
+      <p>
+        {{ 'DEACTIVATE_RBT.DESCRIPTION' | translate }}
+      </p>
+    </div>
+
+    <div class="search-card">
+
+      <h3>{{ 'DEACTIVATE_RBT.SUBSCRIBER_LOOKUP' | translate }}</h3>
+      <p>
+        {{ 'DEACTIVATE_RBT.LOOKUP_DESCRIPTION' | translate }}
+      </p>
+      <div class="search-section">
+
+        <input
+          type="text"
+          [(ngModel)]="mobileNumber"
+          placeholder="{{ 'DEACTIVATE_RBT.ENTER_MOBILE_NUMBER' | translate }}">
+
+        <button
+          class="search-btn"
+          (click)="fetchSubscriberDetails()">
+
+          {{ 'DEACTIVATE_RBT.SEARCH' | translate }}
+
+        </button>
+      </div>
+    </div>
+
+    <div class="details-card" *ngIf="showDetails">
+
+      <div class="card-header">
+        <h3>{{ 'DEACTIVATE_RBT.SUBSCRIBER_DETAILS' | translate }}</h3>
+      </div>
+
+      <table>
+      <tr> <th>{{ 'DASHBOARD.FIELD' | translate }}</th>
+          <th>{{ 'DASHBOARD.VALUE' | translate }}</th></tr>
+      <tr>
+  <td>{{ 'DEACTIVATE_RBT.MOBILE_NUMBER' | translate }}</td>
+  <td>{{ userData?.whatsappNumber }}</td>
+</tr>
+
+<tr>
+  <td>{{ 'DEACTIVATE_RBT.CURRENT_PACK' | translate }}</td>
+   <td>{{ userData?.subscribedPlan ? (userData.subscribedPlan | translate) : '-'}}</td>
+</tr>
+
+<tr>
+  <td>{{ 'DEACTIVATE_RBT.TONE_CODE' | translate }}</td>
+  <td>{{ userData?.toneCode || '-' }}</td>
+</tr>
+
+<tr>
+  <td>{{ 'DEACTIVATE_RBT.TONE_NAME' | translate }}</td>
+  <td>{{ userData?.toneName || '-' }}</td>
+</tr>
+
+<tr>
+  <td>{{ 'DEACTIVATE_RBT.BILLING_DATE' | translate }}</td>
+  <td>{{ userData?.setFrom | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+</tr>
+
+<tr>
+  <td>{{ 'DEACTIVATE_RBT.RENEW_DATE' | translate }}</td>
+  <td>{{ userData?.setTo | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+</tr>
+      </table>
+      <div class="action-section">
+
+        <button
+          class="deactivate-btn"
+          (click)="openDeactivateModal()">
+
+          {{ 'DEACTIVATE_RBT.DEACTIVATE_RBT' | translate }}
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="modal-overlay" *ngIf="showDeactivatePopup">
+  <div class="modal-card">
+    <h3>{{ 'DEACTIVATE_RBT.CONFIRM_DEACTIVATION' | translate }}</h3>
+    <p>
+      {{ 'DEACTIVATE_RBT.CONFIRM_MESSAGE' | translate }}
+    </p>
+
+    <div class="modal-actions">
+
+      <button
+        class="cancel-btn"
+        (click)="showDeactivatePopup=false">
+
+        {{ 'DEACTIVATE_RBT.CANCEL' | translate }}
+
+      </button>
+
+      <button
+        class="confirm-btn"
+        (click)="deactivateRbt()">
+
+        {{ 'DEACTIVATE_RBT.CONFIRM' | translate }}
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Success Message -->
+<div class="success-toast" *ngIf="showSuccessMessage">
+
+  {{ 'DEACTIVATE_RBT.SUCCESS_MESSAGE' | translate }}
+
+</div>
+
+<app-footer></app-footer>
