@@ -22,12 +22,11 @@
   background:white;
   padding:40px;
   box-shadow:0 4px 15px rgba(0,0,0,0.15);
-  border-top:5px solid #0d6efd;
 }
 
 .login-card h2{
   text-align:center;
-  color:#0d6efd;
+  color:#e90000;
   margin-bottom:30px;
 }
 
@@ -52,7 +51,7 @@ button{
   width:100%;
   padding:12px;
   border:none;
-  background:#0d6efd;
+  background:#e90000;
   color:white;
   border-radius:6px;
   font-size:16px;
@@ -60,7 +59,7 @@ button{
 }
 
 button:hover{
-  background:#0b5ed7;
+  background:#e90000;
 }
 
 .error{
@@ -69,7 +68,7 @@ button:hover{
   margin-bottom:15px;
 }
 .banner{
-  background:#0067AE;
+  background:#E90000;
   color:white;
   padding:0px 20px;
   border-radius:12px 12px 0 0;

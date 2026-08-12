@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://cci.kristacrbt.in/api/cci'
+  apiUrl: 'http://172.25.88.75:8093/api/cci'
   
 };

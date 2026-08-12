@@ -99,11 +99,11 @@
 .download-btn:hover {
   background: #ffffff;
   color: #111827;
-  border-color: #0067AE;
+  border-color: #e90000;
 }
 
 .download-btn:hover mat-icon {
-  color: #0067AE;
+  color: #e90000;
 }
 
 .upload-area {
@@ -120,7 +120,7 @@
   border-radius: 50%;
   border: none;
   background: #f3f4f6;
-  color: #0067AE;
+  color: #e90000;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -181,7 +181,7 @@
   padding: 0 22px;
   border: none;
   border-left: 1px solid #d1d5db;
-  background: #0067AE;
+  background: #e90000;
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
@@ -190,7 +190,7 @@
 }
 
 .browse-btn:hover {
-  background: #0067AE;
+  background: #e90000;
 }
 .summary-cards {
   display: flex;
@@ -478,7 +478,7 @@
 }
 
 .history-title mat-icon{
-    color:#2563eb;
+    color:#e90000;
 }
 
 .history-actions{
@@ -525,7 +525,7 @@
 }
 
 .job-id{
-    color:#0067AE;
+    color:#000000;
     font-weight:600;
 }
 
@@ -564,7 +564,7 @@
     gap:5px;
     border:none;
     background:transparent;
-    color:#0067AE;
+    color:#e90000;
     cursor:pointer;
     font-weight:600;
 }

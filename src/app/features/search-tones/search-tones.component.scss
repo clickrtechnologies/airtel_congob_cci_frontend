@@ -65,8 +65,8 @@
 }
 
 .search-box input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  border-color: #e90000;
+  box-shadow: 0 0 0 3px rgba(233, 0, 0, 0.12);
 }
 
 .filter-item {
@@ -96,8 +96,8 @@
 }
 
 .filter-item select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  border-color: #e90000;
+  box-shadow: 0 0 0 3px rgba(233, 0, 0, 0.12);
 }
 
 .table-container {
@@ -130,7 +130,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: #0067AE;
+  background: #e90000;
   color: white;
   border: none;
   border-radius: 6px;
@@ -141,7 +141,7 @@
 }
 
 .preview-btn:hover {
-  background: #0067AE;
+  background: #e90000;
 }
 
 .preview-btn mat-icon {
@@ -155,8 +155,8 @@
   align-items: center;
   gap: 4px;
   background: #ffffff;
-  color: #0067AE;
-  border: 1px solid #0067AE;
+  color: #e90000;
+  border: 1px solid #e90000;
   border-radius: 6px;
   padding: 6px 14px;
   cursor: pointer;
@@ -165,7 +165,7 @@
 }
 
 .rbt-btn:hover {
-  background: #0067AE;
+  background: #e90000;
   color: #ffffff;
 }
 
@@ -253,12 +253,16 @@
     border-radius:8px;
     padding:0 14px;
 }
+.verify-row input:focus {
+    border-color: #e90000;
+    outline: none;
+}
 
 .verify-btn{
     width:110px;
     border:none;
     border-radius:8px;
-    background:#0067AE;
+    background:#e90000;
     color:#fff;
     cursor:pointer;
 }
@@ -300,6 +304,11 @@
     border-radius:8px;
     padding:0 12px;
 }
+.config-section select:focus,
+.config-section select:focus-visible {
+    outline: none !important;
+    border-color: #e90000;
+}
 
 .action-buttons{
     display:flex;
@@ -318,57 +327,13 @@
 
 .activate-btn{
     padding:10px 24px;
-    background:#0067AE;
+    background:#e90000;
     color:#fff;
     border:none;
     border-radius:8px;
     cursor:pointer;
 }
 
-@media (max-width: 768px) {
-
-  .set-rbt-modal {
-    width: 95%;
-  }
-
-  .verify-row {
-    flex-direction: column;
-  }
-
-  .verify-btn {
-    width: 100%;
-  }
-
-  .action-buttons {
-    flex-direction: column;
-  }
-
-  .reset-btn,
-  .activate-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .filter-container {
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  .search-box {
-    flex: 100%;
-    min-width: 100%;
-  }
-
-  .filter-item {
-    flex: 1;
-    min-width: 220px;
-  }
-
-  .filter-item select {
-    width: 100%;
-  }
-}
 .subscriber-message{
     margin-top:18px;
     padding:12px 16px;
